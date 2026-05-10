@@ -1,10 +1,12 @@
+using BackendMridangini.eShop.Core.Products.Entities;
+
 namespace BackendMridangini.eShop.Core.Products.DTOs;
 
 public class ProductQueryDto
 {
     public string? Search { get; set; }
 
-    public Guid? CategoryId { get; set; }
+    public CategoryEnum? CategoryId { get; set; }
 
     public decimal? MinPrice { get; set; }
 
@@ -20,4 +22,3 @@ public class ProductQueryDto
 
     public int PageSize { get; set; } = 20;
 }
-

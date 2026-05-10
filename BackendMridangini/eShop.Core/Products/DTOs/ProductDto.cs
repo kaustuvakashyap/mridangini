@@ -1,3 +1,5 @@
+using BackendMridangini.eShop.Core.Products.Entities;
+
 namespace BackendMridangini.eShop.Core.Products.DTOs;
 
 public class ProductDto
@@ -12,7 +14,7 @@ public class ProductDto
 
     public int Stock { get; set; }
 
-    public Guid CategoryId { get; set; }
+    public CategoryEnum CategoryId { get; set; }
     public int StockCount { get; set; }
     public bool InStock { get; set; }
 }

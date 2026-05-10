@@ -1,38 +1,29 @@
 namespace BackendMridangini.eShop.Core.Products.Controllers;
-using eShop.Core.Products.DTOs;
-using eShop.Core.Products.Interfaces;
+using DTOs;
+using Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 
 
 [ApiController]
 [Route("api/v1/products")]
-public class ProductsController : ControllerBase
+public class ProductsController(IProductService service) : ControllerBase
 {
-    private readonly IProductService _service;
-
-    public ProductsController(
-        IProductService service)
-    {
-        _service = service;
-    }
-
     [HttpGet]
     public async Task<IActionResult> GetProducts(
         [FromQuery] ProductQueryDto query)
     {
         var result =
-            await _service.GetProductsAsync(query);
+            await service.GetProductsAsync(query);
 
         return Ok(result);
     }
 
     [HttpGet("{id:guid}")]
-    public async Task<IActionResult> GetProductById(
-        Guid id)
+    public async Task<IActionResult> GetProductById(Guid id)
     {
         var product =
-            await _service.GetProductByIdAsync(id);
+            await service.GetProductByIdAsync(id);
 
         if (product is null)
         {
@@ -50,11 +41,9 @@ public class ProductsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> CreateProduct(
-        [FromBody] CreateProductDto dto)
+    public async Task<IActionResult> CreateProduct( [FromBody] CreateProductDto dto)
     {
-        var created =
-            await _service.CreateProductAsync(dto);
+        var created =  await service.CreateProductAsync(dto);
 
         return CreatedAtAction(
             nameof(GetProductById),
@@ -67,7 +56,7 @@ public class ProductsController : ControllerBase
         Guid id,
         [FromBody] UpdateProductDto dto)
     {
-        await _service.UpdateProductAsync(id, dto);
+        await service.UpdateProductAsync(id, dto);
 
         return NoContent();
     }
@@ -76,7 +65,7 @@ public class ProductsController : ControllerBase
     public async Task<IActionResult> DeleteProduct(
         Guid id)
     {
-        await _service.DeleteProductAsync(id);
+        await service.DeleteProductAsync(id);
 
         return NoContent();
     }

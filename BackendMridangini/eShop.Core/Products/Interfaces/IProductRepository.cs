@@ -4,13 +4,13 @@ namespace BackendMridangini.eShop.Core.Products.Interfaces;
 
 public interface IProductRepository
 {
-    Task<IEnumerable<Entities.Products>> GetAllAsync();
+    Task<IEnumerable<Entities.Products>> GetAllAsync(); //to be used later if necessary
 
     Task<Entities.Products?> GetByIdAsync(Guid id);
 
     Task<IEnumerable<Entities.Products>> SearchAsync(
         string? search,
-        Guid? categoryId,
+        CategoryEnum? categoryId,
         decimal? minPrice,
         decimal? maxPrice,
         bool? inStock,
@@ -19,9 +19,8 @@ public interface IProductRepository
         int page,
         int pageSize);
 
-    Task<int> CountAsync(
-        string? search,
-        Guid? categoryId,
+    Task<int> CountAsync(string? search,
+        CategoryEnum? categoryId,
         decimal? minPrice,
         decimal? maxPrice,
         bool? inStock);

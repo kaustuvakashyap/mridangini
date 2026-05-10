@@ -1,3 +1,5 @@
+using BackendMridangini.eShop.Core.Products.Entities;
+
 namespace BackendMridangini.eShop.Core.Products.DTOs;
 
 public class UpdateProductDto
@@ -10,7 +12,7 @@ public class UpdateProductDto
 
     public int Stock { get; set; }
 
-    public Guid CategoryId { get; set; }
+    public CategoryEnum CategoryId { get; set; }
 
     public byte[]? RowVersion { get; set; }
 

@@ -1,37 +1,73 @@
-# Project Structure"
-
-```ecommerce-platform/
+# Project Structure and Progress
+```
+ecommerce-platform/
 │
-├── frontend/
+├── frontend/ 
+│   ├── src/
+│   ├── public/
+│   └── package.json
 │
 ├── backend/
+│   │
 │   ├── eShop.Core/
-│   │   ├── Entities/
-│   │   ├── DTOs/
-│   │   ├── Interfaces/
-│   │   ├── Services/
-│   │   ├── StateMachines/
-│   │   └── Enums/
+│   │   │
+│   │   ├── Common/
+│   │   │   ├── Models/
+│   │   │   ├── Exceptions/
+│   │   │   └── Utilities/
+│   │   │
+│   │   ├── Products/
+│   │   │   ├── Entities/ [DONE]
+│   │   │   ├── DTOs/ [DONE]
+│   │   │   ├── Interfaces/ [DONE]
+│   │   │   ├── Services/ [DONE]
+│   │   │   ├── Validators/
+│   │   │   └── Exceptions/
+│   │   │
+│   │   ├── Cart/
+│   │   │   ├── Entities/
+│   │   │   ├── StateMachines/
+│   │   │   ├── DTOs/
+│   │   │   ├── Services/
+│   │   │   └── Interfaces/
+│   │   │
+│   │   ├── Orders/
+│   │   │
+│   │   ├── Auth/
+│   │   │
+│   │   └── Analytics/
 │   │
 │   ├── eShop.Data/
+│   │   │
 │   │   ├── Context/
-│   │   ├── Repositories/
 │   │   ├── Configurations/
+│   │   ├── Repositories/
 │   │   ├── Migrations/
+│   │   ├── Seed/
 │   │   └── Mock/
 │   │
 │   ├── eShop.API/
+│   │   │
 │   │   ├── Controllers/
 │   │   ├── Middleware/
 │   │   ├── Extensions/
+│   │   ├── Filters/
+│   │   ├── Swagger/
+│   │   ├── appsettings.json
 │   │   └── Program.cs
 │   │
 │   └── eShop.sln
 │
 ├── tests/
+│   ├── eShop.Core.Tests/
+│   ├── eShop.API.Tests/
+│   └── eShop.IntegrationTests/
 │
 ├── infrastructure/
+│   ├── podman/
+│   ├── nginx/
 │   ├── compose.yml
-│   └── nginx/
+│   └── monitoring/
 │
-└── README.md```
+└── README.md
+```

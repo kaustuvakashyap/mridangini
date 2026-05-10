@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="eShop.API\Controllers\" />
       <Folder Include="eShop.Core\Products\Exceptions\" />
       <Folder Include="eShop.Core\Products\Validators\" />
     </ItemGroup>
