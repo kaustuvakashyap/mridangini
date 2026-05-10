@@ -6,15 +6,15 @@ The primary goal is to build a fully deployable, high-performance E-commerce pla
 ## 2. System Architecture & Tech Stack
 This system utilizes an N-tier architecture to support scalability and enforce a strict separation of concerns.
 
-* **Backend Development:** Django (Python)
-* **Frontend Development:** Vanilla HTML, CSS, and JavaScript
+* **Backend Development:** ASP.NET Core
+* **Frontend Development:**: React
 * **Design & Prototyping:** Figma
 * **Methodology:** Rapid Application Development (RAD) & Evolutionary Model
 
 ## 3. Local Environment Setup
 
 ### Prerequisites
-* Python 3.10+
+* .NET 10.0
 * Node.js (for potential frontend tooling/minification)
 * PostgreSQL or SQLite (depending on current phase)
 
@@ -33,8 +33,8 @@ This system utilizes an N-tier architecture to support scalability and enforce a
 
 * **Design:** Gargee Kakaty (Lead), Kaustuva Kashyap
 * **Frontend:** Abhishek Das (Lead), Gargee Kakaty
-* **Backend:** Ronit Choudhury (Co-Dev), Abhishek Das (Co-Dev)
-* **Documentation:** Ronit Choudhury (Lead)
+* **Backend:** Ronit Choudhury 
+* **Documentation:** Ronit Choudhury, Kaustuva Kashyap
 
 ## 6. Future Enhancements & Algorithmic Notes
 
