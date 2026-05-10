@@ -1,0 +1,9 @@
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/BackendMridangini.csproj.AssemblyReference.cache
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/rpswa.dswa.cache.json
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/BackendMridangini.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/BackendMridangini.AssemblyInfoInputs.cache
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/BackendMridangini.AssemblyInfo.cs
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/BackendMridangini.csproj.CoreCompileInputs.cache
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/BackendMridangini.MvcApplicationPartsAssemblyInfo.cs
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/BackendMridangini.MvcApplicationPartsAssemblyInfo.cache
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/BackendMridangini.sourcelink.json
