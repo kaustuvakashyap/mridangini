@@ -1,0 +1,58 @@
+:root{
+
+  /* COLORS */
+
+  --pearl:#f4e7d2;
+  --buttercream:#EFE1CE;
+  --charcoal:#202833;
+  --maroon:#800000;
+
+  --success:#abe200;
+  --warning:#ffbe56;
+  --danger:#ff1e1e;
+
+  /* FONTS */
+
+  --heading-font:"Xanh Mono", monospace;
+  --body-font:"DM Sans", sans-serif;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+.top-border{
+    width:100%;
+    height:48px;
+    background-image:url("./assets/gamusa_diamond_flower.png");
+    background-color:rgba(244, 231, 210, 0.90);
+    backdrop-filter: blur(10px);
+    background-repeat:repeat-x;
+    background-size:contain;
+    background-position:center;
+    position:fixed;
+    top:1.1px;
+    left: 0;
+    z-index:2000;    
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--pearl);
+  font-family:var(--body-font);
+  overflow-x:hidden;
+}
+
+li{
+  list-style:none;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
