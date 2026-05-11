@@ -1,9 +1,8 @@
 using System.Collections;
-using BackendMridangini.eShop.Core.Products.DTOs;
 
 namespace BackendMridangini.Common.Model;
 
-public class PagedResult<T> : IEnumerable<ProductDto>
+public class PagedResult<T> : IEnumerable<T>
 {
     public IEnumerable<T> Data { get; set; }
         = [];
@@ -11,9 +10,9 @@ public class PagedResult<T> : IEnumerable<ProductDto>
     public PaginationMeta Meta { get; set; }
         = new();
 
-    public IEnumerator<ProductDto> GetEnumerator()
+    public IEnumerator<T> GetEnumerator()
     {
-        throw new NotImplementedException();
+        return Data.GetEnumerator();
     }
 
     IEnumerator IEnumerable.GetEnumerator()
