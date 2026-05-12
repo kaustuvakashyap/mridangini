@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BackendMridangini")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec960c01f4aa6a940f08c8fb55216c821bcbf984")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+20d0c2edf76537f9483797c89b28fda0d6df9e6a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BackendMridangini")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BackendMridangini")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
