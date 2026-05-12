@@ -55,7 +55,7 @@ public class ProductService(IProductRepository repository) : IProductService
 
   
     /**
-     * <summary>Fetches Products by Product ID. returns a Product DTO</summary>
+     * <summary>Fetches Product by Product ID. returns a Product DTO</summary>
      * <param name="id"> Type: Guid, identifies product by ID</param>
      * <returns>ProductDto Object product </returns>
      */
@@ -75,7 +75,7 @@ public class ProductService(IProductRepository repository) : IProductService
     {
         ValidatePrice(dto.Price);
         ValidateStock(dto.Stock);
-        var product = new Products
+        var product = new Product
         {
             Name = dto.Name,
             Description = dto.Description,
@@ -103,6 +103,7 @@ public class ProductService(IProductRepository repository) : IProductService
             await repository.GetByIdAsync(id);
 
         if (existing is null) throw new Exception("Product not found.");
+        if (dto.RowVersion is not null) { existing.RowVersion = dto.RowVersion; }
 
         existing.Name = dto.Name;
         existing.Description = dto.Description;
@@ -124,7 +125,7 @@ public class ProductService(IProductRepository repository) : IProductService
      * <param name="product">Take object of type Product</param>
      * <returns>Returns a Product DTO object</returns>
      */
-    private static ProductDto MapToDto(Products product)
+    private static ProductDto MapToDto(Product product)
     {
         return new ProductDto
         {
@@ -134,7 +135,8 @@ public class ProductService(IProductRepository repository) : IProductService
             Price = product.Price,
             StockCount = product.Stock,
             InStock = product.Stock > 0,
-            CategoryId = product.TypeCategory
+            CategoryId = product.TypeCategory,
+            RowVersion = product.RowVersion
         };
     }
 

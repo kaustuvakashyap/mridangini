@@ -1,13 +1,19 @@
 using BackendMridangini.eShop.Core.Products.DTOs;
+using BackendMridangini.Common.Model;
 namespace BackendMridangini.eShop.Core.Products.Interfaces;
+
 
 public interface IProductService
 {
-    /** Tasks are asynchronous operatios that can return a value
-     * <summary> a async function that return an IEnumerable ProductDto </summary>
+    /**
+     * Tasks are asynchronous operatios that can return a value
+     *     * <summary> a async function that return an IEnumerable ProductDto </summary>
+     *     *
      * <param name="query"> This is a GetProductAsync DTO query Object</param>
-    **/
+     * *
+     */
     Task<IEnumerable<ProductDto>> GetProductsAsync(ProductQueryDto query);
+    // Task<IEnumerable<ProductDto>> GetProductsAsync(ProductQueryDto query);
     
     
     /**
@@ -23,7 +29,7 @@ public interface IProductService
     Task<ProductDto> CreateProductAsync(CreateProductDto dto);
     
     /**
-     * <summary>Update Products using ID, takes UpdateProductDto as one of the params</summary>\
+     * <summary>Update Product using ID, takes UpdateProductDto as one of the params</summary>\
      * <param name="id"> ID</param>
      * <param name="dto"> takes UpdateProductDto</param>
      */

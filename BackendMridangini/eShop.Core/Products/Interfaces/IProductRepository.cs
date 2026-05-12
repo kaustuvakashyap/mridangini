@@ -4,11 +4,11 @@ namespace BackendMridangini.eShop.Core.Products.Interfaces;
 
 public interface IProductRepository
 {
-    Task<IEnumerable<Entities.Products>> GetAllAsync(); //to be used later if necessary
+    Task<IEnumerable<Entities.Product>> GetAllAsync(); //to be used later if necessary
 
-    Task<Entities.Products?> GetByIdAsync(Guid id);
+    Task<Entities.Product?> GetByIdAsync(Guid id);
 
-    Task<IEnumerable<Entities.Products>> SearchAsync(
+    Task<IEnumerable<Entities.Product>> SearchAsync(
         string? search,
         CategoryEnum? categoryId,
         decimal? minPrice,
@@ -25,9 +25,9 @@ public interface IProductRepository
         decimal? maxPrice,
         bool? inStock);
 
-    Task<Entities.Products> CreateAsync(Entities.Products product);
+    Task<Entities.Product> CreateAsync(Entities.Product product);
 
-    Task UpdateAsync(Entities.Products product);
+    Task UpdateAsync(Entities.Product product);
 
     Task SoftDeleteAsync(Guid id);
 }

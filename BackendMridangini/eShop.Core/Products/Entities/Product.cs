@@ -2,7 +2,7 @@ namespace BackendMridangini.eShop.Core.Products.Entities;
 
 
 
-public class Products
+public class Product
 {
     public Guid Id { get; set; }
 
@@ -20,6 +20,7 @@ public class Products
     public DateTime CreatedAtUtc { get; set; }
 
     public DateTime UpdatedAtUtc { get; set; }
+    public byte[] RowVersion { get; set; } = [];
 }
 
 public enum CategoryEnum
