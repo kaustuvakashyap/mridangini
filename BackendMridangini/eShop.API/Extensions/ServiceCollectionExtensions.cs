@@ -3,6 +3,8 @@ using BackendMridangini.eShop.Core.Cart.Services;
 using BackendMridangini.eShop.Core.Cart.StateMachine;
 using BackendMridangini.eShop.Core.Products.Interfaces;
 using BackendMridangini.eShop.Data.Repositories;
+using BackendMridangini.eShop.Core.Auth.Interfaces;
+using BackendMridangini.eShop.Core.Auth.Services;
 
 namespace BackendMridangini.eShop.API.Extensions;
 
@@ -18,6 +20,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<ICartService, CartService>();
 
         services.AddScoped<ICartStateMachine, CartStateMachine>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IAuthService, AuthService>();
         
 
         return services;

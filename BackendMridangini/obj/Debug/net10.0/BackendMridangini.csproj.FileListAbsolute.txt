@@ -124,3 +124,12 @@
 /mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/BackendMridangini.pdb
 /mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/BackendMridangini.genruntimeconfig.cache
 /mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/obj/Debug/net10.0/ref/BackendMridangini.dll
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/bin/Debug/net10.0/BCrypt-Net-Next.dll
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/bin/Debug/net10.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/bin/Debug/net10.0/Microsoft.IdentityModel.Abstractions.dll
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/bin/Debug/net10.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/bin/Debug/net10.0/Microsoft.IdentityModel.Logging.dll
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.dll
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/bin/Debug/net10.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/bin/Debug/net10.0/Microsoft.IdentityModel.Tokens.dll
+/mnt/fedora_disk2/Projects2/mridangini/BackendMridangini/bin/Debug/net10.0/System.IdentityModel.Tokens.Jwt.dll
