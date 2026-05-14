@@ -39,7 +39,7 @@ Mridangini addresses these with an N-tier architecture, Stripe-integrated paymen
 ---
 
 ## 3. ER Diagram
-![ER Diagram](./Docs/er_diagram.png)
+![ER Diagram](./Docs/er_diagram.jpg)
 
 > Tables: `USERS`, `PRODUCTS`, `CATEGORIES`, `ORDERS`, `ORDER_ITEMS`, `AUDIT_LOG`
 
