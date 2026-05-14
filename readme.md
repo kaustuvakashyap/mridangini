@@ -46,7 +46,7 @@ Mridangini addresses these with an N-tier architecture, Stripe-integrated paymen
 ---
 
 ## 4. Workflow
-![Workflow](./docs/workflow.png)
+![Workflow](./docs/workflow.jpg)
 
 **Flow:** User Visits Site → Browse/Search → View Product → Add to Cart → Modify Cart → Checkout → Shipping Info → Stripe Payment → (Success: Create Order → Update Inventory → Send Invoice → Fulfillment → Delivery) / (Fail: Payment Failed)
 
@@ -54,15 +54,15 @@ Mridangini addresses these with an N-tier architecture, Stripe-integrated paymen
 
 ## 5. Dataflow
 ### Customer & Admin Use Cases
-![Use Case Diagram](./docs/dataflow_usecase.png)
+![Use Case Diagram](./docs/usecase.jpg)
 
 ### System Module Flow
-![System Modules](./docs/dataflow_modules.png)
+![System Modules](./docs/dataflow.jpg)
 
 ---
 
 ## 6. Architecture
-![Architecture](./docs/architecture.png)
+![Architecture](./docs/architecture.jpg)
 
 | Tier | Technology | Role |
 |------|-----------|------|
