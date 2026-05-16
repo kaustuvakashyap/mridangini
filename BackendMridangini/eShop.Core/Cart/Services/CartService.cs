@@ -26,7 +26,14 @@ public class CartService : ICartService
 
         _stateMachine = stateMachine;
     }
-
+    
+    /**
+     * <summary>
+     * Gets the cart for the specified user.
+     * </summary>
+     * <param name="userId">The user ID.</param>
+     * <returns>The cart DTO.</returns>
+     */
     public async Task<CartDto> GetCartAsync(Guid userId)
     {
         var cart = await _cartRepository.GetByUserIdAsync(userId);
@@ -45,7 +52,14 @@ public class CartService : ICartService
 
         return MapToDto(cart);
     }
-
+    /**
+     * <summary>
+     * Adds an item to the cart.
+     * </summary>
+     * <param name="userId">The user ID.</param>
+     * <param name="dto">The cart item DTO.</param>
+     * <returns>The updated cart DTO.</returns>
+     */
     public async Task<CartDto> AddItemAsync(
         Guid userId,
         AddCartItemDto dto)
@@ -79,7 +93,7 @@ public class CartService : ICartService
         }
 
         _stateMachine.AddItem(cart);
-
+        
         var existingItem = cart.Items
             .FirstOrDefault(i => i.ProductId == dto.ProductId);
 
@@ -105,6 +119,15 @@ public class CartService : ICartService
         return MapToDto(cart);
     }
 
+    /**
+     * <summary>
+     * Updates the quantity of an item in the cart.
+     * </summary>
+     * <param name="userId">The user ID.</param>
+     * <param name="cartItemId">The cart item ID.</param>
+     * <param name="quantity">The new quantity.</param>
+     * <returns>The updated cart DTO.</returns>
+     */
     public async Task<CartDto> UpdateItemQuantityAsync(
         Guid userId,
         Guid cartItemId,
@@ -169,6 +192,12 @@ public class CartService : ICartService
         return MapToDto(cart);
     }
 
+    /**
+     * <summary>
+     * Checks out the cart for the specified user.
+     * </summary>
+     * <param name="userId">The user ID.</param>
+     */
     public async Task CheckoutAsync(Guid userId)
     {
         var cart = await _cartRepository.GetByUserIdAsync(userId)
@@ -183,6 +212,13 @@ public class CartService : ICartService
         await _cartRepository.SaveChangesAsync();
     }
 
+    /**
+     * <summary>
+     * Maps a Cart entity to a Cart DTO.
+     * </summary>
+     * <param name="cart">The Cart entity.</param>
+     * <returns>The Cart DTO.</returns>
+     */
     private static CartDto MapToDto(Entities.Cart cart)
     {
         return new CartDto

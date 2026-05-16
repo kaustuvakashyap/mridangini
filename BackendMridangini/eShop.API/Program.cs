@@ -16,6 +16,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 
+//swagger testing
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc(
@@ -45,6 +46,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 
+//auth service
 builder.Services
     .AddAuthentication(
         JwtBearerDefaults.AuthenticationScheme)
@@ -76,6 +78,8 @@ builder.Services
             };
     });
 
+
+//Database / DB context service
 builder.Services.AddDbContext<EShopDbContext>(options =>
 {
     options.UseNpgsql(

@@ -1,11 +1,26 @@
 namespace BackendMridangini.eShop.Core.Cart.StateMachine;
 
-using BackendMridangini.eShop.Core.Cart.Entities;
-using BackendMridangini.eShop.Core.Cart.Exception;
+using Entities;
+using Exception;
 
 
+/**
+ * <summary>
+ * Represents the state machine for managing the state of a shopping cart.
+ * </summary>
+ *  <remarks>
+ * The CartStateMachine class implements the ICartStateMachine interface and defines the behavior of the shopping cart based on its current state.
+ * It handles state transitions for adding items, removing items, checking out, and processing payment results.
+ * The state machine ensures that the cart transitions between states in a valid manner and throws exceptions for invalid state transitions.
+ * </remarks>
+ */
 public class CartStateMachine : ICartStateMachine
 {
+    /**
+     * <summary> * Adds an item to the cart and updates the cart state accordingly.
+     * </summary>
+     * <param name="cart">The cart to which the item is being added.</param>
+     */
     public void AddItem(Cart cart)
     {
         switch (cart.State)
@@ -18,8 +33,7 @@ public class CartStateMachine : ICartStateMachine
                 break;
 
             case CartState.Locked:
-                throw new InvalidCartStateTransitionException(
-                    cart.State,
+                throw new InvalidCartStateTransitionException(cart.State,
                     nameof(AddItem));
 
             case CartState.Cleared:
@@ -31,6 +45,11 @@ public class CartStateMachine : ICartStateMachine
         }
     }
 
+    /**
+     * <summary> * Removes an item from the cart and updates the cart state accordingly.
+     * </summary>
+     * <param name="cart">The cart from which the item is being removed.</param>
+     */
     public void RemoveItem(Cart cart)
     {
         switch (cart.State)
@@ -56,6 +75,11 @@ public class CartStateMachine : ICartStateMachine
         }
     }
 
+    /**
+     * <summary>Initiates the checkout process for the cart and updates the cart state accordingly.
+     * </summary>
+     * <param name="cart">The cart for which to initiate checkout.</param>
+     */
     public void Checkout(Cart cart)
     {
         switch (cart.State)
@@ -71,6 +95,11 @@ public class CartStateMachine : ICartStateMachine
         }
     }
 
+    /**
+     * <summary>Processes a successful payment for the cart and updates the cart state accordingly.
+     * </summary>
+     * <param name="cart">The cart for which the payment succeeded.</param>
+     */
     public void PaymentSucceeded(Cart cart)
     {
         switch (cart.State)
@@ -86,6 +115,11 @@ public class CartStateMachine : ICartStateMachine
         }
     }
 
+    /*
+     * <summary>Processes a failed payment for the cart and updates the cart state accordingly.
+     * </summary>
+     * <param name="cart">The cart for which the payment failed.</param>
+     */
     public void PaymentFailed(Cart cart)
     {
         switch (cart.State)

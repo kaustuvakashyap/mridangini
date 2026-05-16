@@ -4,18 +4,19 @@ using Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 
-
 [ApiController]
 [Route("api/v1/products")]
 public class ProductsController(IProductService service) : ControllerBase
 {
     [HttpGet]
     public async Task<IActionResult> GetProducts(
+        
+        
+        
         [FromQuery] ProductQueryDto query)
     {
         var result =
             await service.GetProductsAsync(query);
-
         return Ok(result);
     }
 

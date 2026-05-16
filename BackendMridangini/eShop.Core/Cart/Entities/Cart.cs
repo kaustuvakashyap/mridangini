@@ -1,8 +1,9 @@
 namespace BackendMridangini.eShop.Core.Cart.Entities;
 
+
 public class Cart
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
 
     public Guid UserId { get; set; }
 
