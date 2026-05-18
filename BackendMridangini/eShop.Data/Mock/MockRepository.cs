@@ -5,7 +5,7 @@ namespace BackendMridangini.eShop.Data.Mock;
 
 public class MockProductRepository : IProductRepository
 {
-    private static readonly List<Products> Products =
+    private static readonly List<Product> Products =
     [
         new()
         {
@@ -34,19 +34,19 @@ public class MockProductRepository : IProductRepository
         }
     ];
 
-    public Task<IEnumerable<Products>> GetAllAsync()
+    public Task<IEnumerable<Product>> GetAllAsync()
     {
         return Task.FromResult(Products.AsEnumerable());
     }
 
-    public Task<Products?> GetByIdAsync(Guid id)
+    public Task<Product?> GetByIdAsync(Guid id)
     {
         var product = Products.FirstOrDefault(p => p.Id == id);
 
         return Task.FromResult(product);
     }
 
-    public Task<IEnumerable<Products>> SearchAsync(
+    public Task<IEnumerable<Product>> SearchAsync(
         string? search,
         CategoryEnum? categoryId,
         decimal? minPrice,
@@ -57,7 +57,7 @@ public class MockProductRepository : IProductRepository
         int page,
         int pageSize)
     {
-        IEnumerable<Products> query = Products;
+        IEnumerable<Product> query = Products;
 
         if (!string.IsNullOrWhiteSpace(search))
         {
@@ -112,7 +112,7 @@ public class MockProductRepository : IProductRepository
         decimal? maxPrice,
         bool? inStock)
     {
-        IEnumerable<Products> query = Products;
+        IEnumerable<Product> query = Products;
 
         if (!string.IsNullOrWhiteSpace(search))
         {
@@ -124,7 +124,7 @@ public class MockProductRepository : IProductRepository
         return Task.FromResult(query.Count());
     }
 
-    public Task<Products> CreateAsync(Products product)
+    public Task<Product> CreateAsync(Product product)
     {
         product.Id = Guid.NewGuid();
 
@@ -137,7 +137,7 @@ public class MockProductRepository : IProductRepository
         return Task.FromResult(product);
     }
 
-    public Task UpdateAsync(Products product)
+    public Task UpdateAsync(Product product)
     {
         var existing = Products.FirstOrDefault(
             p => p.Id == product.Id);

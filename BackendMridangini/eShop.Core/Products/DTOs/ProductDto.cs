@@ -17,4 +17,5 @@ public class ProductDto
     public CategoryEnum CategoryId { get; set; }
     public int StockCount { get; set; }
     public bool InStock { get; set; }
+    public byte[]? RowVersion { get; set; }
 }
