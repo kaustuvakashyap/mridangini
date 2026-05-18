@@ -1,68 +1,49 @@
 import "../styles/footer.css";
 
+import footerLogo from "../assets/MridLogo.svg";
+import borderImg from "../assets/gamusa_diamond_flower.png";
+
+import { Link } from "react-router-dom";
+
 function Footer() {
+
   return (
 
     <footer className="footer">
+      <div className="footer-content">
+        {/* LEFT */}
 
-      <div className="footer-left">
-
-        <h1>Mridangini</h1>
-
-        <p>
-          Music. Culture. Connection.
-        </p>
-
-        <div className="socials">
-
-          <span>📷</span>
-          <span>📘</span>
-          <span>▶️</span>
-          <span>📌</span>
-
+        <div className="footer-left">
+          <img src={footerLogo} alt="" className="footer-logo"/>
+          <h2>MRIDANGINI</h2>
+          <p>MUSIC.CULTURE.CONNECTION.</p>
         </div>
 
-      </div>
+        {/* CENTER */}
 
-      <div className="footer-center">
-
-        <h2>Quick Links</h2>
-
-        <ul>
-          <li>Shop</li>
-          <li>About Us</li>
-          <li>Shipping & Returns</li>
-          <li>Terms & Conditions</li>
-          <li>Privacy Policy</li>
-          <li>Contact Us</li>
-        </ul>
-
-      </div>
-
-      <div className="footer-right">
-
-        <h2>Newsletter</h2>
-
-        <p>
-          Subscribe to our newsletter
-          for updates and offers.
-        </p>
-
-        <div className="newsletter">
-
-          <input
-            type="email"
-            placeholder="Your email"
-          />
-
-          <button>→</button>
-
+        <div className="footer-center">
+          <h3>Quick Links</h3>
+          <Link to="/">Home</Link>
+          <a href="/#shop"> Shop </a>
+          <Link to="/about"> About Us </Link>
+          <Link to="/orders"> Orders </Link>
+          <Link to="/contact"> Contact </Link>
         </div>
 
+        {/* RIGHT */}
+        <div className="footer-right">
+          <h3>Newsletter</h3>
+          <p>Subscribe to newsletter for updates and exclusive offers.</p>
+          <div className="newsletter-box">
+            <input type="email" placeholder="Enter your email"/>
+          </div>
+        </div>
       </div>
+
+      {/* BOTTOM BORDER */}
+      <div className="footer-border" style={{ backgroundImage: `url(${borderImg})`}}></div>
 
     </footer>
-
   );
 }
 

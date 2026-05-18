@@ -1,8 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-
 import "../styles/categoryPage.css";
-
 import { useParams } from "react-router-dom";
 
 import percussion1 from "../assets/Inst_AIed/Bihu_Dhul.jpg";
@@ -34,272 +32,234 @@ import folk5 from "../assets/Inst_AIed/Kodital.jpg";
 import folk6 from "../assets/Inst_AIed/Saksoni_and_Dangmari.jpg";
 
 function CategoryPage() {
-
   const { type } = useParams();
-
   const products = {
 
-    percussion:[
-
+    percussion: [
       {
-        id:1,
-        name:"Bihu Dhul",
-        price:700,
-        image:percussion1
+        id: 1, title: "Bihu Dhul", price: 700,
+        description: "Traditional Assamese festival drum handcrafted by local artisans.",
+        image: percussion1
       },
 
       {
-        id:2,
-        name:"Mridanga",
-        price:1200,
-        image:percussion2
+        id: 2, title: "Mridanga", price: 1200,
+        description: "A traditional handcrafted drum from Assam.",
+        image: percussion2
       },
       {
-        id:3,
-        name:"Moran Dhul",
-        price:1500,
-        image:percussion3
+        id: 3, title: "Moran Dhul", price: 1500,
+        description: "A traditional handcrafted drum from Assam.",
+        image: percussion3
       },
       {
-        id:4,
-        name:"Cheng Burup",
-        price:1800,
-        image:percussion4
+        id: 4, title: "Cheng Burup", price: 1800,
+        description: "A traditional handcrafted drum from Assam.",
+        image: percussion4
       },
       {
-        id:5,
-        name:"Dhutong",
-        price:2600,
-        image:percussion5
+        id: 5, title: "Dhutong", price: 2600,
+        description: "A traditional handcrafted drum from Assam.",
+        image: percussion5
       }
-
     ],
 
-    wind:[
-
+    wind: [
       {
-        id:1,
-        name:"Pepa",
-        price:1200,
-        image:wind1
+        id: 1, title: "Pepa", price: 1200,
+        description: "A traditional wind instrument from Assam.",
+        image: wind1
       },
 
       {
-        id:2,
-        name:"Gogona",
-        price:1800,
-        image:wind2
+        id: 2, title: "Gogona", price: 1800,
+        description: "A traditional wind instrument from Assam.",
+        image: wind2
       },
       {
-        id:3,
-        name:"Mori Pongsi",
-        price:1300,
-        image:wind3
+        id: 3, title: "Mori Pongsi", price: 1300,
+        description: "A traditional wind instrument from Assam.",
+        image: wind3
       },
       {
-        id:4,
-        name:"Bahor Hutuli",
-        price:900,
-        image:wind4
+        id: 4, title: "Bahor Hutuli", price: 900,
+        description: "A traditional wind instrument from Assam.",
+        image: wind4
       },
       {
-        id:5,
-        name:"Mori Tongpo",
-        price:1600,
-        image:wind5
+        id: 5, title: "Mori Tongpo", price: 1600,
+        description: "A traditional wind instrument from Assam.",
+        image: wind5
       },
       {
-        id:6,
-        name:"Baghdhenu",
-        price:2700,
-        image:wind6
+        id: 6, title: "Baghdhenu", price: 2700,
+        description: "A traditional wind instrument from Assam.",
+        image: wind6
       }
-
     ],
 
-    string:[
-
+    string: [
       {
-        id:1,
-        name:"Veen",
-        price:4200,
-        image:string1
+        id: 1, title: "Veen", price: 4200,
+        description: "A traditional string instrument from Assam.",
+        image: string1
       },
 
       {
-        id:2,
-        name:"Ektara",
-        price:5500,
-        image:string2
+        id: 2, title: "Ektara", price: 5500,
+        description: "A traditional string instrument from Assam.",
+        image: string2
       },
       {
-        id:3,
-        name:"Kichokbenu",
-        price:5500,
-        image:string3
+        id: 3, title: "Kichokbenu", price: 3500,
+        description: "A traditional string instrument from Assam.",
+        image: string3
       },
       {
-        id:4,
-        name:"Jurtang",
-        price:5500,
-        image:string4
+        id: 4, title: "Jurtang", price: 2200,
+        description: "A traditional string instrument from Assam.",
+        image: string4
       },
       {
-        id:5,
-        name:"Krong Chui",
-        price:5500,
-        image:string5
+        id: 5, title: "Krong Chui", price: 1200,
+        description: "A traditional string instrument from Assam.",
+        image: string5
       },
       {
-        id:6,
-        name:"Kum Dengdong",
-        price:5500,
-        image:string6
+        id: 6, title: "Kum Dengdong", price: 900,
+        description: "A traditional string instrument from Assam.",
+        image: string6
       },
       {
-        id:7,
-        name:"Mori Jangkek",
-        price:5500,
-        image:string7
+        id: 7, title: "Mori Jangkek", price: 1500,
+        description: "A traditional string instrument from Assam.",
+        image: string7
       }
-
     ],
 
-    folk:[
-
+    folk: [
       {
-        id:1,
-        name:"Taal",
-        price:2100,
-        image:folk1
+        id: 1, title: "Taal", price: 2100,
+        description: "A traditional folk instrument from Assam.",
+        image: folk1
       },
 
       {
-        id:2,
-        name:"Kortal",
-        price:700,
-        image:folk2
+        id: 2, title: "Kortal", price: 700,
+        description: "A traditional folk instrument from Assam.",
+        image: folk2
       },
       {
-        id:3,
-        name:"Hutuli",
-        price:700,
-        image:folk3
+        id: 3, title: "Hutuli", price: 700,
+        description: "A traditional folk instrument from Assam.",
+        image: folk3
       },
       {
-        id:4,
-        name:"Daskathiya",
-        price:700,
-        image:folk4
+        id: 4, title: "Daskathiya", price: 700,
+        description: "A traditional folk instrument from Assam.",
+        image: folk4
       },
       {
-        id:5,
-        name:"Kodital",
-        price:700,
-        image:folk5
+        id: 5, title: "Kodital", price: 700,
+        description: "A traditional folk instrument from Assam.",
+        image: folk5
       },
       {
-        id:6,
-        name:"Saksoni",
-        price:700,
-        image:folk6
+        id: 6, title: "Saksoni", price: 700,
+        description: "A traditional folk instrument from Assam.",
+        image: folk6
       }
-
     ]
-
   };
 
-  const selectedProducts =
-  products[type] || [];
+  const staticProducts = products[type] || [];
+  const dynamicProducts = JSON.parse(localStorage.getItem("products")) || [];
+  const sellerProducts = dynamicProducts.filter((product) => product.category === type);
+
+  const selectedProducts = [
+    ...staticProducts,
+    ...sellerProducts
+  ];
 
   const addToCart = (product) => {
+    const currentUser = JSON.parse(localStorage.getItem("user"));
 
-    const cart =
-    JSON.parse(localStorage.getItem("cart")) || [];
+    if (!currentUser) {
+      alert("Please login first to add items to cart.");
+      return;
+    }
 
-    cart.push(product);
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existingProduct = cart.find((item) => item.id === product.id);
 
-    localStorage.setItem(
-      "cart",
-      JSON.stringify(cart)
-    );
+    if (existingProduct) {
+      alert("Item already added to cart.");
+      return;
+    }
 
+    cart.push({...product ,quantity: 1});
+    localStorage.setItem("cart",JSON.stringify(cart));
     alert("Item Added To Cart!");
+  };
 
+  const handleShopNow = (product) => {
+
+    const currentUser = JSON.parse(localStorage.getItem("user"));
+
+    if (!currentUser) {
+      alert( "Please login first to continue.");
+      return;
+    }
+
+    const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+
+    const newOrder = {
+      id: Date.now(),
+      customer: currentUser.name,
+      items: [{...product ,quantity: 1}],
+      total: product.price,
+      status: "Pending",
+      date: new Date().toLocaleDateString()
+    };
+
+    existingOrders.push(newOrder);
+    localStorage.setItem("orders",JSON.stringify(existingOrders));
+    alert("Order Placed Successfully!");
   };
 
   return (
-
     <>
-
       <Navbar />
-
       <section className="category-page">
-
         <div className="category-container">
-
-          <h1>
-
-            {type.charAt(0).toUpperCase() + type.slice(1)} Collection
-
-          </h1>
+          <h1> {type.charAt(0).toUpperCase() + type.slice(1)} Collection</h1>
 
           <div className="product-grid">
-
             {
-              selectedProducts.map((product)=>(
+              selectedProducts.map((product) => (
 
-                <div
-                  className="product-card"
-                  key={product.id}
-                >
+                <div className="product-card" key={product.id}>
 
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                  />
+                  <img src={product.image} alt={product.name || product.title}/>
+                  <h3> {product.name || product.title}</h3>
 
-                  <h3>
-                    {product.name}
-                  </h3>
+                  {
+                    product.description && <span className="product-description"> {product.description}</span>
+                  }
 
-                  <p>
-                    ₹ {product.price}
-                  </p>
+                  <p>₹ {product.price}</p>
 
                   <div className="product-buttons">
-
-                    <button className="shop-btn">
-                      Shop Now
-                    </button>
-
-                    <button
-                      className="cart-btn"
-
-                      onClick={()=>
-                        addToCart(product)
-                      }
-                    >
-                      Add To Cart
-                    </button>
-
+                    <button className="shop-btn" onClick={() => handleShopNow(product)}>Shop Now</button>
+                    <button className="cart-btn" onClick={() => addToCart(product)}> Add To Cart</button>
                   </div>
-
                 </div>
-
               ))
             }
-
           </div>
-
         </div>
-
       </section>
-
-      {/* <Footer /> */}
-
     </>
-
   );
 }
 

@@ -1,13 +1,14 @@
 .categories {
     width: 100%;
-    background: var(--charcoal);
+    border-top:12px solid #e8d7b6;
+    background-color: #1b232d;
     padding: 80px 60px;
     position: relative;
 }
 
 .categories h1 {
     text-align: center;
-    color: var(--buttercream);
+    color: #e0b96d;
     font-family: var(--heading-font);
     font-size: 52px;
     margin-bottom: 60px;
@@ -68,39 +69,4 @@
     font-size: 22px;
     font-weight: 500;
     margin-top: 10px;
-}
-
-/* Responsive */
-
-@media(max-width:1200px) {
-
-    .category-container {
-        gap: 20px;
-    }
-
-    .card {
-        width: 200px;
-    }
-
-}
-
-@media(max-width:768px) {
-
-    .categories {
-        padding: 60px 20px;
-    }
-
-    .categories h1 {
-        font-size: 38px;
-    }
-
-    .category-container {
-        flex-direction: column;
-    }
-
-    .card {
-        width: 100%;
-        max-width: 320px;
-    }
-
 }

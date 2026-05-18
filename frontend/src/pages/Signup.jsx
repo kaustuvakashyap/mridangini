@@ -1,157 +1,113 @@
-import "../styles/auth.css";
-
 import { useState } from "react";
-
-import {
-  useNavigate,
-  Link
-} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/signup.css";
 
 function Signup() {
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [address, setAddress] = useState("");
+    const [role, setRole] = useState("customer");
 
-  const [formData,setFormData] = useState({
+    function handleSignup(e) {
+        e.preventDefault();
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const userExists = users.find((user) => user.email === email);
 
-    name:"",
-    email:"",
-    phone:"",
-    address:"",
-    password:""
+        if (userExists) {
+            alert("User already exists. Please login.");
+            return;
+        }
 
-  });
+        const newUser = { name, email, password, address, role };
 
-  const handleChange = (e) => {
+        users.push(newUser);
+        localStorage.setItem(
+            "users",
+            JSON.stringify(users)
+        );
 
-    setFormData({
+        alert("Signup Successful!");
 
-      ...formData,
+        localStorage.setItem("user", JSON.stringify(newUser));
 
-      [e.target.name]:e.target.value
+        if (role === "seller") {
+            navigate("/seller-dashboard");
+        }else {
+            navigate("/");
+        }
+    }
 
-    });
+    return (
 
-  };
+        <section className="signup-page">
+            <div className="signup-box">
+                <h1>Create Account</h1>
 
- const handleSubmit = (e) => {
+                <form onSubmit={handleSignup}>
 
-  e.preventDefault();
+                    <input
+                        type="text"
+                        placeholder="Full Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="text"
+                        placeholder="Address"
+                        value={address}
+                        onChange={(e) => setAddress(e.target.value)}
+                        required
+                    />
 
-  const users =
-  JSON.parse(localStorage.getItem("users")) || [];
+                    {/* ROLE SELECTOR */}
 
-  const userExists = users.find(
-    (user) => user.email === formData.email
-  );
+                    <div className="role-selector">
+                        <button type="button"
 
-  if(userExists){
+                            className={
+                                role === "customer" ? "active-role" : ""
+                            }
+                            onClick={() =>
+                                setRole("customer")
+                            }
+                        > Customer</button>
 
-    alert(
-      "User already exists. Please Login."
-    );
+                        <button type="button"
 
-    navigate("/login");
+                            className={
+                                role === "seller" ? "active-role" : ""
+                            }
+                            onClick={() =>
+                                setRole("seller")
+                            }
+                        > Seller </button>
+                    </div>
 
-    return;
-  }
+                    <button type="submit" className="signup-btn"> Signup </button>
+                </form>
 
-  users.push(formData);
-
-  localStorage.setItem(
-    "users",
-    JSON.stringify(users)
-  );
-
-  localStorage.setItem(
-    "user",
-    JSON.stringify(formData)
-  );
-
-  alert("Account Created Successfully!");
-
-  navigate("/");
-
-  window.location.reload();
-
-};
-
-  return (
-
-    <section className="auth-page">
-
-      <div className="auth-container">
-
-        <div className="auth-left">
-
-          <h1>Create Account</h1>
-
-        </div>
-
-        <div className="auth-right">
-
-          <form onSubmit={handleSubmit}>
-
-            <input
-              type="text"
-              placeholder="Full Name"
-              name="name"
-              onChange={handleChange}
-            />
-
-            <input
-              type="email"
-              placeholder="Email Address"
-              name="email"
-              onChange={handleChange}
-            />
-
-            <input
-              type="text"
-              placeholder="Phone Number"
-              name="phone"
-              onChange={handleChange}
-            />
-
-            <input
-              type="text"
-              placeholder="Address"
-              name="address"
-              onChange={handleChange}
-            />
-
-            <input
-              type="password"
-              placeholder="Password"
-              name="password"
-              onChange={handleChange}
-            />
-
-            <button type="submit">
-              Create Account
-            </button>
-
-            <div className="auth-switch">
-
-              <p>
-                Already have an account?
-
-                <Link to="/login">
-                  Login
-                </Link>
-
-              </p>
-
+                <p> Already have an account? <Link to="/login"> Login </Link> </p>
             </div>
-
-          </form>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  );
+        </section>
+    );
 }
 
 export default Signup;

@@ -41,49 +41,22 @@ function Categories() {
 
         <section className="categories" id="shop">
 
-            <h1>
-                Shop by Category
-            </h1>
-
+            <h1>Shop by Category</h1>
             <div className="category-container">
-
                 {
                     data.map((item,index)=>(
-
-                        <Link
-                            to={item.route}
-
-                            className="category-link"
-
-                            key={index}
-                        >
-
+                        <Link to={item.route} className="category-link" key={index} >
                             <div className="card">
-
                                 <div className="image-box">
-
-                                    <img
-                                        src={item.image}
-                                        alt=""
-                                    />
-
+                                    <img src={item.image} alt=""/>
                                 </div>
-
-                                <h2>
-                                    {item.title}
-                                </h2>
-
+                                <h2>{item.title}</h2>
                             </div>
-
                         </Link>
-
                     ))
                 }
-
             </div>
-
         </section>
-
     );
 }
 

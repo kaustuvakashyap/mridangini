@@ -12,6 +12,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Cart from "./pages/Cart";
 import CategoryPage from "./pages/CategoryPage";
+import SellerDashboard from "./pages/SellerDashboard";
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
 
         <Route path="/cart" element={<Cart />} />
+        <Route path="/seller-dashboard" element={<SellerDashboard />}/>
       </Routes>
 
       <Footer />

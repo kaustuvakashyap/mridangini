@@ -1,65 +1,80 @@
+import { useEffect, useState } from "react";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import "../styles/orders.css";
 
-function Orders() {
+function Orders(){
 
-  // EMPTY initially
+    const [orders, setOrders] = useState([]);
 
-  const orders = [];
+    useEffect(()=>{
+        const currentUser = JSON.parse(localStorage.getItem("user"));
 
-  return (
+        if(!currentUser){
+            setOrders([]);
+            return;
+        }
 
-    <section className="orders-page">
+        const storedOrders = JSON.parse(localStorage.getItem("orders")) || [];
 
-      <div className="orders-header">
+        const userOrders = storedOrders.filter((order)=>
+            order.customer === currentUser.name
+        );
 
-        <h1>Your Orders</h1>
+        setOrders(userOrders);
 
-        <p>
-          Track your handcrafted treasures
-          and cultural collections.
-        </p>
+    },[]);
 
-      </div>
+    return(
+        <>
+            <Navbar />
+            <section className="orders-page">
+                <h1>Your Orders</h1>
 
-      {
-        orders.length === 0 ? (
+                {
+                    orders.length === 0 ?
 
-          <div className="empty-orders">
+                    <div className="empty-orders">
+                        <h2>No Orders Yet</h2>
+                    </div>
+                    :
+                    <div className="orders-container">
+                        {
+                            orders.map((order)=>(
+                                <div className="order-card" key={order.id}>
+                                    <div className="order-top">
+                                        <div>
+                                            <h2> Order ID: {" "} {order.id} </h2>
+                                            <p> {order.date}</p>
+                                        </div>
+                                        <span className="order-status"> {order.status}</span>
+                                    </div>
 
-            <h2>No Orders Yet</h2>
+                                    <div className="ordered-items">
+                                        {
+                                            order.items.map((item)=>(
+                                                <div className="ordered-item" key={item.id} >
+                                                    <img src={item.image} alt=""/>
+                                                    <div>
+                                                        <h3> {item.title || item.name}</h3>
+                                                        <p> ₹ {item.price}</p>
+                                                        <p> Qty: {" "} {item.quantity}</p>
+                                                    </div>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
 
-            <p>
-              Your ordered instruments and
-              handcrafted collections will
-              appear here once you make a purchase.
-            </p>
+                                    <h2 className="order-total"> Total: {" "} ₹ {order.total} </h2>
+                                </div>
+                            ))
+                        }
 
-          </div>
-
-        ) : (
-
-          <div className="orders-container">
-
-            {
-              orders.map((item,index)=>(
-
-                <div className="order-card" key={index}>
-
-                  <h2>{item.product}</h2>
-
-                </div>
-
-              ))
-            }
-
-          </div>
-
-        )
-      }
-
-    </section>
-
-  );
+                    </div>
+                }
+            </section>
+        </>
+    );
 }
 
 export default Orders;
