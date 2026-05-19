@@ -2,6 +2,8 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/categoryPage.css";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import api from "../api/api";
 
 import percussion1 from "../assets/Inst_AIed/Bihu_Dhul.jpg";
 import percussion2 from "../assets/Inst_AIed/Mridanga.jpg";
@@ -32,7 +34,20 @@ import folk5 from "../assets/Inst_AIed/Kodital.jpg";
 import folk6 from "../assets/Inst_AIed/Saksoni_and_Dangmari.jpg";
 
 function CategoryPage() {
+  const [backendProducts, setBackendProducts] = useState([]);
   const { type } = useParams();
+
+  useEffect(() => { loadProducts(); }, []);
+
+  const loadProducts = async () => {
+    try {
+      const response = await api.get("/products");
+      console.log(response.data);
+      setBackendProducts(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const products = {
 
     percussion: [
@@ -176,10 +191,30 @@ function CategoryPage() {
   const dynamicProducts = JSON.parse(localStorage.getItem("products")) || [];
   const sellerProducts = dynamicProducts.filter((product) => product.category === type);
 
-  const selectedProducts = [
-    ...staticProducts,
-    ...sellerProducts
-  ];
+  // const apiProducts = backendProducts.filter((product) => product.category?.toLowerCase() === type.toLowerCase());
+  // const selectedProducts = [...apiProducts];
+  const selectedProducts = backendProducts.filter((product) => {
+
+  const description = product.description?.toLowerCase() || "";
+
+  if (type === "percussion") {
+    return description.includes("percussion");
+  }
+
+  if (type === "wind") {
+    return description.includes("wind");
+  }
+
+  if (type === "string") {
+    return description.includes("string");
+  }
+
+  if (type === "folk") {
+    return description.includes("folk");
+  }
+
+  return true;
+});
 
   const addToCart = (product) => {
     const currentUser = JSON.parse(localStorage.getItem("user"));
@@ -197,8 +232,8 @@ function CategoryPage() {
       return;
     }
 
-    cart.push({...product ,quantity: 1});
-    localStorage.setItem("cart",JSON.stringify(cart));
+    cart.push({ ...product, quantity: 1 });
+    localStorage.setItem("cart", JSON.stringify(cart));
     alert("Item Added To Cart!");
   };
 
@@ -207,7 +242,7 @@ function CategoryPage() {
     const currentUser = JSON.parse(localStorage.getItem("user"));
 
     if (!currentUser) {
-      alert( "Please login first to continue.");
+      alert("Please login first to continue.");
       return;
     }
 
@@ -216,14 +251,14 @@ function CategoryPage() {
     const newOrder = {
       id: Date.now(),
       customer: currentUser.name,
-      items: [{...product ,quantity: 1}],
+      items: [{ ...product, quantity: 1 }],
       total: product.price,
       status: "Pending",
       date: new Date().toLocaleDateString()
     };
 
     existingOrders.push(newOrder);
-    localStorage.setItem("orders",JSON.stringify(existingOrders));
+    localStorage.setItem("orders", JSON.stringify(existingOrders));
     alert("Order Placed Successfully!");
   };
 
@@ -240,7 +275,7 @@ function CategoryPage() {
 
                 <div className="product-card" key={product.id}>
 
-                  <img src={product.image} alt={product.name || product.title}/>
+                  <img src={product.image || percussion1} alt={product.name || product.title} />
                   <h3> {product.name || product.title}</h3>
 
                   {
